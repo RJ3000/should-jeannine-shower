@@ -12,26 +12,60 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #f0f0f0;
+            text-align: center;
+            transition: background-color 0.5s ease;
         }
         .answer {
-            font-size: 72px;
+            font-size: 36px;
             font-weight: bold;
-            text-transform: uppercase;
+            max-width: 80%;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
     </style>
 </head>
 <body>
-    <div class="answer" id="answer">YES</div>
+    <div class="answer" id="answer"></div>
 
     <script>
-        // Optional: You can add logic here to change the answer based on certain conditions
-        // For example, you could change it based on the day of the week:
-        /*
-        const day = new Date().getDay();
-        const answer = document.getElementById('answer');
-        answer.textContent = (day === 0 || day === 6) ? 'YES' : 'NO';
-        */
+        const replies = [
+            "My god yes please!",
+            "My eyes are hurting, shower required",
+            "I can smell you from very far away",
+            "Is that you or did a skunk pass by?",
+            "Shower? More like power wash at this point",
+            "The plants are wilting as you walk by",
+            "Your body odor could be classified as a weapon",
+            "Even your imaginary friends are holding their noses",
+            "The dog refuses to play fetch with you",
+            "You're single-handedly solving the overpopulation problem",
+            "Your stench is violating the Geneva Convention",
+            "Scientists want to study your unique ecosystem",
+            "You've redefined the term 'au naturel'",
+            "Flies are avoiding you. That's saying something",
+            "Your aroma is making onions cry",
+            "You're like a walking compost heap, but less fresh",
+            "Your scent could wake the dead... and make them wish they weren't",
+            "You've achieved a new level of 'earthy'",
+            "Is that your natural musk or did something die in your pocket?",
+            "Congratulations! You've just invented a new cologne: Eau de Yuck"
+        ];
+
+        // Set this to true when Jeannine doesn't need to shower
+        const isClean = false;
+
+        function getRandomReply() {
+            if (isClean) {
+                document.body.style.backgroundColor = '#4CAF50'; // Green
+                return "No, you're good!";
+            } else {
+                document.body.style.backgroundColor = '#F44336'; // Red
+                const randomIndex = Math.floor(Math.random() * replies.length);
+                return replies[randomIndex];
+            }
+        }
+
+        document.getElementById('answer').textContent = getRandomReply();
     </script>
 </body>
 </html>
